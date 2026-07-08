@@ -1,0 +1,6 @@
+@SmartEduPro.WebApi_HostAddress = http://localhost:5027
+
+GET {{SmartEduPro.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
