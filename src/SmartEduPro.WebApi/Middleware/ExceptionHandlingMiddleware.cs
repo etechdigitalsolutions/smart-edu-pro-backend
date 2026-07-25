@@ -1,10 +1,4 @@
-using System.Net;
-using System.Text.Json;
-using FluentValidation;
-using SmartEduPro.Domain.Exceptions;
-
 namespace SmartEduPro.WebApi.Middleware;
-
 public class ExceptionHandlingMiddleware
 {
     private readonly RequestDelegate _next;

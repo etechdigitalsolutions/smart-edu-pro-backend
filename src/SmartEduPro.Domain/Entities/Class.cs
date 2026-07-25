@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace SmartEduPro.Domain.Entities;
+﻿namespace SmartEduPro.Domain.Entities;
 public class Class
 {
     public Guid Id { get; set; }

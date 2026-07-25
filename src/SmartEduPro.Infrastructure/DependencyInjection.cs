@@ -17,13 +17,18 @@ public static class DependencyInjection
             ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(connectionString));
+            options.UseNpgsql(connectionString));
 
         services.AddScoped<IApplicationDbContext>(provider =>
             provider.GetRequiredService<ApplicationDbContext>());
 
         services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        services.AddHttpContextAccessor();
+        services.AddScoped<IJwtTokenService, Services.JwtTokenService>();
+        services.AddScoped<IPasswordHasher, Services.PasswordHasher>();
+        services.AddScoped<ICurrentUserService, Services.CurrentUserService>();
 
         return services;
     }
